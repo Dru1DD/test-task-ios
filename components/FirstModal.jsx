@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { View, Text } from 'react-native'
-import { Picker } from '@react-native-picker/picker'
+import { Picker } from './Picker/Picker'
 import { mainPage as styles } from '../styles/mainPage'
 
 export const FirstModel = () => {
@@ -30,21 +30,9 @@ export const FirstModel = () => {
     return (
         <View style={styles.modalContainer}>
         <View style={styles.modelTime}>
-            <Picker selectedValue={hours} onValueChange={(itemValue) => setHours(itemValue)}>
-                {firstCount.map((item, idx) => {
-                    return (
-                        <Picker.Item label={item} value={item} key={idx} />
-                    )
-                })}
-            </Picker>
+                <Picker {...{values: firstCount, defaultValue: 0}}/>
             <Text style={styles.separetedSymbol}>:</Text>
-            <Picker selectedValue={minutes} onValueChange={(itemValue) => setMinutes(itemValue)}>
-                {secondCount.map((item, idx) => {
-                    return (
-                        <Picker.Item label={item} value={item} key={idx} />
-                    )
-                })}
-            </Picker>
+            <Picker {...{values: secondCount, defaultValue: 0}}/>
         </View>
         
         <View style={styles.line} />

@@ -1,6 +1,6 @@
 import React, {  useState } from 'react'
 import { View, Text } from 'react-native'
-import { Picker } from '@react-native-picker/picker''
+import { Picker } from './Picker/Picker'
 import { mainPage as styles } from '../styles/mainPage'
 
 export const SecondModel = () => {
@@ -15,13 +15,7 @@ export const SecondModel = () => {
 
     return (
         <View style={styles.modalContainer}>
-            <Picker selectedValue={tempValue} onValueChange={(itemValue) => setTempValue(itemValue)}>
-                {tempLabel.map((item, idx) => {
-                    return (
-                        <Picker.Item label={item} value={item} key={idx} />
-                    )
-                })}
-            </Picker>
+            <Picker {...{values, defaultValue}}/>
             <View style={styles.line} />
             <Text>{tempValue}</Text>               
         </View>
